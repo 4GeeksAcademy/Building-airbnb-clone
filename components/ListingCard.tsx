@@ -7,8 +7,13 @@ interface ListingCardProps {
 export const ListingCard = ({ listing }: ListingCardProps) => {
   return (
     <div className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md">
-      <div className="h-44 bg-gradient-to-br from-zinc-200 to-zinc-300 p-3 text-xs font-medium text-zinc-600">
-        {listing.imageLabel}
+      <div className="relative aspect-[4/3] overflow-hidden bg-zinc-100">
+        <img
+          src={listing.imageLabel}
+          alt={listing.title}
+          className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+          loading="lazy"
+        />
       </div>
       <div className="space-y-1 p-4">
         <div className="flex items-start justify-between gap-3">

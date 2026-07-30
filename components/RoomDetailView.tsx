@@ -45,7 +45,12 @@ export const RoomDetailView = ({ roomId }: RoomDetailViewProps) => {
             <div className="space-y-5">
               <PhotoGallery photos={room.photos} />
               <RoomListingHeader title={room.title} rating={room.rating} reviews={room.reviews} location={room.location} />
-              <HostInfoRow hostName={room.host.name} yearsHosting={room.host.yearsHosting} avatarLabel={room.host.avatarLabel} />
+              <HostInfoRow
+                hostName={room.host.name}
+                yearsHosting={room.host.yearsHosting}
+                avatarLabel={room.host.avatarLabel}
+                avatarUrl={`https://picsum.photos/seed/${room.host.name.toLowerCase()}/80/80`}
+              />
               <p className="rounded-2xl border border-zinc-200 bg-white p-4 text-sm text-zinc-700">{room.description}</p>
               <AmenitiesGrid amenities={room.amenities} />
             </div>
