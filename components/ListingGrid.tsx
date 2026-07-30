@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Listing } from "@/types/models";
 import { ListingCard } from "@/components/ListingCard";
 
@@ -14,7 +15,9 @@ export const ListingGrid = ({ listings, emptyLabel }: ListingGridProps) => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
       {listings.map((listing) => (
-        <ListingCard key={listing.id} listing={listing} />
+        <Link key={listing.id} href={`/rooms/${listing.id}`}>
+          <ListingCard listing={listing} />
+        </Link>
       ))}
     </div>
   );

@@ -18,6 +18,7 @@ export const rooms: Room[] = [
     rating: 4.89,
     reviews: 128,
     imageLabel: "Sunset balcony",
+    coordinates: { lat: 25.7617, lng: -80.1918 },
     photos: ["Balcony at sunset", "Living room", "Bedroom", "Kitchen"],
     description:
       "Bright loft with ocean views, two blocks from the beach, and walkable nightlife.",
@@ -34,6 +35,7 @@ export const rooms: Room[] = [
     rating: 4.95,
     reviews: 84,
     imageLabel: "Wooden cabin",
+    coordinates: { lat: 39.1911, lng: -106.8175 },
     photos: ["Cabin front", "Fireplace", "Mountain view", "Deck"],
     description:
       "Quiet mountain cabin with fireplace and hiking trails starting at the doorstep.",
@@ -50,6 +52,7 @@ export const rooms: Room[] = [
     rating: 4.78,
     reviews: 201,
     imageLabel: "Skyline terrace",
+    coordinates: { lat: 40.7128, lng: -74.006 },
     photos: ["Terrace", "Dining area", "Primary suite", "City night view"],
     description:
       "High-floor penthouse with skyline terrace, ideal for business or luxury city stays.",
@@ -66,6 +69,7 @@ export const rooms: Room[] = [
     rating: 4.91,
     reviews: 67,
     imageLabel: "Courtyard pool",
+    coordinates: { lat: 33.4942, lng: -111.9261 },
     photos: ["Pool deck", "Open kitchen", "Master room", "Patio"],
     description:
       "Architectural villa with private pool and indoor-outdoor living in the desert.",
@@ -82,6 +86,7 @@ export const rooms: Room[] = [
     rating: 4.73,
     reviews: 96,
     imageLabel: "Studio near coast",
+    coordinates: { lat: 32.7157, lng: -117.1611 },
     photos: ["Studio interior", "Kitchenette", "Street view", "Beach path"],
     description:
       "Compact and stylish studio a short walk from the beach and local cafes.",
@@ -91,6 +96,8 @@ export const rooms: Room[] = [
   },
 ];
 
-export const listings: Listing[] = rooms.map(({ photos, description, amenities, host, maxGuests, ...listing }) => listing);
+export const listings: Listing[] = rooms.map(
+  ({ photos, description, amenities, host, maxGuests, ...listing }) => listing
+);
 
 export const findRoomById = (id: string): Room | undefined => rooms.find((room) => room.id === id);

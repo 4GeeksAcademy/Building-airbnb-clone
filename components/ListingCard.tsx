@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Listing } from "@/types/models";
 
 interface ListingCardProps {
@@ -7,10 +6,7 @@ interface ListingCardProps {
 
 export const ListingCard = ({ listing }: ListingCardProps) => {
   return (
-    <Link
-      href={`/rooms/${listing.id}`}
-      className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md"
-    >
+    <div className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md">
       <div className="h-44 bg-gradient-to-br from-zinc-200 to-zinc-300 p-3 text-xs font-medium text-zinc-600">
         {listing.imageLabel}
       </div>
@@ -24,6 +20,6 @@ export const ListingCard = ({ listing }: ListingCardProps) => {
           <span className="font-semibold">${listing.pricePerNight}</span> night
         </p>
       </div>
-    </Link>
+    </div>
   );
 };

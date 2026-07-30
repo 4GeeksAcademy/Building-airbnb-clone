@@ -1,3 +1,8 @@
+export interface Coordinates {
+  lat: number;
+  lng: number;
+}
+
 export interface Listing {
   id: string;
   title: string;
@@ -7,6 +12,7 @@ export interface Listing {
   rating: number;
   reviews: number;
   imageLabel: string;
+  coordinates: Coordinates;
 }
 
 export interface Host {

@@ -1,13 +1,22 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
 import { AppFooter } from "@/components/AppFooter";
 import { AppHeader } from "@/components/AppHeader";
 import { ListingGrid } from "@/components/ListingGrid";
-import { MapPlaceholder } from "@/components/MapPlaceholder";
 import { ResultsHeader } from "@/components/ResultsHeader";
 import { listings } from "@/data/listings";
 import type { SortOrder } from "@/types/models";
+
+const CatalogMap = dynamic(() => import("@/components/CatalogMap").then((mod) => mod.CatalogMap), {
+  ssr: false,
+  loading: () => (
+    <aside className="flex items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-100 md:sticky md:top-24 md:h-[600px]">
+      <p className="text-sm text-zinc-500">Loading map…</p>
+    </aside>
+  ),
+});
 
 const CatalogPage = () => {
   const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
@@ -25,7 +34,7 @@ const CatalogPage = () => {
         <ResultsHeader count={sortedListings.length} sortOrder={sortOrder} onSortChange={setSortOrder} />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-[2fr_1fr]">
           <ListingGrid listings={sortedListings} emptyLabel="No stays available for this filter." />
-          <MapPlaceholder />
+          <CatalogMap listings={sortedListings} />
         </div>
       </main>
       <AppFooter />
