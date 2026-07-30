@@ -49,7 +49,7 @@ export const RoomDetailView = ({ roomId }: RoomDetailViewProps) => {
                 hostName={room.host.name}
                 yearsHosting={room.host.yearsHosting}
                 avatarLabel={room.host.avatarLabel}
-                avatarUrl={`https://picsum.photos/seed/${room.host.name.toLowerCase()}/80/80`}
+                avatarUrl={`https://loremflickr.com/80/80/portrait,face?random=${room.host.name.charCodeAt(0)}`}
               />
               <p className="rounded-2xl border border-zinc-200 bg-white p-4 text-sm text-zinc-700">{room.description}</p>
               <AmenitiesGrid amenities={room.amenities} />
